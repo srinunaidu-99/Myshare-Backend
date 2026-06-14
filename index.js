@@ -5,28 +5,40 @@ const cors = require("cors");
 
 const app = express();
 app.use(cors());
+app.use(express.json());
 
 const server = http.createServer(app);
+
 const io = new Server(server, {
-  cors: { origin: "*" }
+  cors: {
+    origin: "*",
+  },
 });
 
+// Test route
+app.get("/", (req, res) => {
+  res.send("MyShare Backend Running 🚀");
+});
+
+// Socket logic
 io.on("connection", (socket) => {
   console.log("User connected:", socket.id);
 
   socket.on("join-room", (room) => {
     socket.join(room);
+    console.log("Joined room:", room);
   });
 
-  socket.on("send-message", (data) => {
-    io.to(data.room).emit("receive-message", data);
+  socket.on("send-message", ({ room, message }) => {
+    socket.to(room).emit("receive-message", message);
   });
 
-  socket.on("send-file", (data) => {
-    io.to(data.room).emit("receive-file", data);
+  socket.on("disconnect", () => {
+    console.log("User disconnected");
   });
 });
 
+// IMPORTANT
 const PORT = process.env.PORT || 5000;
 
 server.listen(PORT, () => {
