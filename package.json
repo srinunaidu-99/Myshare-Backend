@@ -1,20 +1,15 @@
 {
-  "name": "myshare-server",
+  "name": "realtime-share-backend",
   "version": "1.0.0",
-  "description": "MyShare backend server",
+  "description": "Backend for real-time text and file sharing",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "dev": "nodemon index.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "cors": "^2.8.6",
-    "express": "^4.22.2",
-    "qrcode": "^1.5.3",
-    "socket.io": "^4.8.3"
-  },
-  "devDependencies": {},
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+    "cors": "^2.8.5",
+    "express": "^4.21.0",
+    "qrcode": "^1.5.4",
+    "socket.io": "^4.8.0"
+  }
 }
