@@ -1,13 +1,20 @@
 {
-  "name": "myshare-backend",
+  "name": "myshare-server",
   "version": "1.0.0",
+  "description": "MyShare backend server",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^4.18.2",
-    "socket.io": "^4.7.2"
-  }
+    "cors": "^2.8.6",
+    "express": "^4.22.2",
+    "qrcode": "^1.5.3",
+    "socket.io": "^4.8.3"
+  },
+  "devDependencies": {},
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
